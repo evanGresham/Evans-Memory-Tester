@@ -1,0 +1,42 @@
+website plan:
+
+
+- have a calender with days colored in 
+green which we did a test and red if
+we missed.
+
+- multiple categories, inc: actors, 
+comedians, cars, dog breeds etc.
+
+
+- also a misc category which mixes
+all  the other categories
+
+- each test is like 20-30 questions
+
+
+
+Question types:
+- picture, e.g whats this actor
+	- i also want some info to be
+	able to be added. e.g when you 
+	guess robert downey jr, before
+	the next pic, some info about
+	him pops up for a couple of 
+	seconds, like movies dob and
+	shit
+- text, e.g. word defintions, "whats
+	the capital of egypt"
+
+- a close enough button might be a 
+good idea for when you get it right but
+spell something wrong. maybe but maybe not
+
+- also an honesty system, which will
+be like it asks the question. then
+i answer in my head then click answer
+and if i got it wrong i will say so.
+its just if i cant be fucked typing.
+might be good for phone version
+
+ 

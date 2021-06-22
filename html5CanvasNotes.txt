@@ -1,0 +1,57 @@
+html canvas notes
+
+SETTING UP CANVAS____________________________________
+1. get the canvas variable with
+	var canvas = document.querySelector('canvas');
+2. set canvas width/height with
+	canvas.width = 100;
+	canvas.height = window.innerHeight
+	this can also be done with
+	canvas.style.width  = '800px';
+3. get the context variable
+	var c = canvas.getContext('2d');
+	we use c to draw everything, idk what it is but
+	it contains a shit ton of methods 
+DRAWING_______________________________________________
+1.draw line:
+	in order to draw a line we first need to define a path
+	which the line will follow.
+	c.beginPath() needs to be called first
+	c.moveTo(x,y) this moves the "cursor" of the line
+		without drawing anything
+	c.lineTo(x,y) this draws a line from the current
+		position of the paths end to the x,y
+	
+	then once you are done defining the path you need
+	to draw the line
+	c.strokeStyle = "red"; any css value for color works here
+	c.lineWidth = 2;
+	c.stoke() draws the line.
+2. draw rectange
+	
+	
+	c.beginPath(); since stroking a rect is a path then we  need to start a new one 
+		otherwise a line will be drawn from our previous path
+	c.fillStyle = 'rgba(255,0,0,0.5)'; color is transparent red
+	c.rect(x,y,w,h); draws a rect path
+	c.fill(); fills in the path
+	c.stroke(); adds outline
+
+3. draw circle/ arc
+	c.beginPath()
+	c.fillStyle = "red";
+	c.arc(x,y,radius, starting angle (0 for circle),
+		end angle(2*pi for circle), drawClockwiseboolean)
+	c.fill();  this fills in the path which is drawn, fillRect has this incorportated 
+		for some reason but there is no equivilent for the circle
+	c.stroke();
+
+
+4. animate shit
+	function animate(){
+		requestAnimationFrame(animate); //this waits until the computer is ready to update (usually 60 fps)
+		c.clearRect(0,0,canvas.width, canvas.height); //this clears the entire screen
+		//put shit here
+		//fuckin easy
+	}
+	animate();
