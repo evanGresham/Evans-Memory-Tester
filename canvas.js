@@ -59,6 +59,11 @@ function draw() {
     c.font = "30px Arial";
     c.fillText(currentText,10,50);
 
+
+    if(hideKeyboardNextFrame){
+        hideKeyboard(document.getElementById("answerTextBox"));
+        hideKeyboardNextFrame = false;
+    }
 }
 
 function drawDot() {
@@ -120,27 +125,27 @@ function onMouseDown(clickEvent) {
 
 }
 
-
+let hideKeyboardNextFrame = false;
 function confirmInput(){
 
     var x = document.getElementById("answerTextBox");
     console.log(x.value);
-    currentText = "Wow u stupid, " + x.value + " is a fuckin dumb cunt answer \n fuck you"
+    currentText = "Wow u stupid, " + x.value + " is a fuckin dumb cunt answer \n fuck you";
+    hideKeyboardNextFrame = true;
 
-    var field = document.createElement('input');
-    field.setAttribute('type', 'text');
-    document.body.appendChild(field);
-
-    setTimeout(function() {
-        field.focus();
-        setTimeout(function() {
-            field.setAttribute('style', 'display:none;');
-        }, 50);
-    }, 50);
     return false;
 
 }
-
+function hideKeyboard(element) {
+    element.setAttribute('readonly', 'readonly'); // Force keyboard to hide on input field.
+    element.setAttribute('disabled', 'true'); // Force keyboard to hide on textarea field.
+    setTimeout(function() {
+        element.blur();  //actually close the keyboard
+        // Remove readonly attribute after keyboard is hidden.
+        element.removeAttribute('readonly');
+        element.removeAttribute('disabled');
+    }, 100);
+}
 draw();
 
 
