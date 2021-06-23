@@ -1,6 +1,6 @@
 var canvas = document.querySelector('canvas');
-canvas.width = 300;
-canvas.height = 500;
+canvas.width = innerWidth;
+canvas.height =  innerHeight-200;
 let c = canvas.getContext("2d");
 
 // c.beginPath();
@@ -29,9 +29,14 @@ let c = canvas.getContext("2d");
 // c.fill();
 // c.stroke();
 
+canvas.addEventListener("mousedown",onMouseDown,false);
+
+
+
+
 
 let x = 0;
-
+let y = 400;
 function draw() {
     requestAnimationFrame(draw);
     c.clearRect(0, 0, canvas.width, canvas.height);
@@ -39,7 +44,7 @@ function draw() {
 
     c.beginPath();
     c.fillStyle = "orange";
-    c.arc(x, 400, 100, 0, 2 * Math.PI, true);
+    c.arc(x, y, 100, 0, 2 * Math.PI, true);
     c.lineWidth = 2;
     c.strokeStyle = "black";
     c.fill();
@@ -52,6 +57,34 @@ function draw() {
 
     }
 }
+
+function onMouseDown(clickEvent){
+
+    x+=40;
+
+
+    var element = canvas;
+    var offsetX = 0, offsetY = 0;
+
+    if (element.offsetParent) {
+        do {
+            offsetX += element.offsetLeft;
+            offsetY += element.offsetTop;
+        } while ((element = element.offsetParent));
+    }
+
+    mousex = clickEvent.pageX - offsetX;
+    mousey = clickEvent.pageY - offsetY;
+
+    x = mousex;
+    y = mousey;
+    console.log(mousex, mousey);
+    console.log(clickEvent.pageX,clickEvent.pageY);
+
+
+
+}
+
 
 draw();
 

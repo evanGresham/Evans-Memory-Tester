@@ -1,27 +1,64 @@
 <html>
 <head>
-  <meta charset="UTF-8">
-<!--  <script language="javascript" type="text/javascript" src="libraries/p5.js"></script>-->
-<!--  <script language="javascript" src="libraries/p5.dom.js"></script>-->
-<!--  <script language="javascript" src="libraries/p5.sound.js"></script>-->
-<!--  <script language="javascript" type="text/javascript" src="sketch.js"></script>-->
-  <style type="text/css" >
-    canvas{
-      background: rgb(100,0,0);
-      /*width: 300px;*/
-      /*height: 500px;*/
-    }
-  </style>
+    <meta charset="UTF-8">
+    <!--  <script language="javascript" type="text/javascript" src="libraries/p5.js"></script>-->
+    <!--  <script language="javascript" src="libraries/p5.dom.js"></script>-->
+    <!--  <script language="javascript" src="libraries/p5.sound.js"></script>-->
+    <!--  <script language="javascript" type="text/javascript" src="sketch.js"></script>-->
+    <style type="text/css">
+        canvas {
+            background: #343434;
+            padding: 0;
+
+            /*width: 300px;*/
+            /*height: 500px;*/
+        }
+
+        body {
+            padding: 0;
+            margin: 0;
+
+            background : #343434;
+
+        }
+
+        input[type=text] {
+            border: none;
+            appearance: none;
+            background: #f2f2f2;
+            outline: none;
+            padding: 12px;
+            border-radius: 3px;
+
+
+            width: 500px;
+            height: 60px;
+            font-size: 32px;
+            font-family: 'Courier New', monospace;
+        }
+
+        input:focus::placeholder {
+            color: transparent;
+        }
+
+        input::placeholder {
+            /*color: #222;*/
+            color: grey;
+            transition: color 0.3s ease;
+
+        }
+    </style>
 </head>
 
 <body>
 
+<canvas></canvas>
+<script language="JavaScript" type="text/javascript" src="canvas.js"></script>
+<br> <br>
 <center>
-  <canvas></canvas>
-  <script language="JavaScript" type="text/javascript" src="canvas.js"></script> <br> <br>
-  <input type="text" id="answerTextBox">
-
+    <input type="text" id="answerTextBox" placeholder="Goodluck dumb cunt">
 </center>
+
 
 </body>
 </html>
