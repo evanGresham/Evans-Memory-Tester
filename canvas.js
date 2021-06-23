@@ -45,6 +45,8 @@ canvas.addEventListener("mousedown", onMouseDown, false);
 let x = 0;
 let y = 400;
 
+
+let currentText = "";
 function draw() {
     requestAnimationFrame(draw);
     c.clearRect(0, 0, canvas.width, canvas.height);
@@ -54,6 +56,8 @@ function draw() {
 
     drawDot();
 
+    c.font = "30px Arial";
+    c.fillText(currentText,10,50);
 
 }
 
@@ -86,8 +90,6 @@ function drawPictureCenteredAndScaled(img) {
 
     let scaleAmount = Math.min(imageToScreenHeightRatio, imageToScreenWidthRatio);
 
-    console.log(canvas.width, canvas.height, img.width, img.height, scaleAmount);
-
     let xOffset = (canvas.width - (scaleAmount * img.width)) / 2;
     let yOffset = (canvas.height - (scaleAmount * img.height)) / 2;
 
@@ -114,12 +116,19 @@ function onMouseDown(clickEvent) {
 
     x = mousex;
     y = mousey;
-    console.log(mousex, mousey);
-    console.log(clickEvent.pageX, clickEvent.pageY);
 
 
 }
 
+
+function confirmInput(){
+
+    var x = document.getElementById("answerTextBox");
+    console.log(x.value);
+
+    currentText = "Wow u stupid, " + x.value + " is a fuckin dumb cunt answer \n fuck you"
+    return false;
+}
 
 draw();
 
