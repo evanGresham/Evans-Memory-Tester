@@ -54,7 +54,7 @@ function draw() {
 
     drawPictureCenteredAndScaled(testImage);
 
-    // drawDot();
+    drawDot();
     c.fillStyle = "white";
     c.font = "30px Arial";
     c.fillText(currentText,10,50);
