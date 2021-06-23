@@ -1,7 +1,17 @@
 var canvas = document.querySelector('canvas');
 canvas.width = innerWidth;
-canvas.height =  innerHeight-200;
+canvas.height = innerHeight - 200;
 let c = canvas.getContext("2d");
+
+var testImage = new Image();
+// img.src = './codebullet.jpg';
+if(Math.random()>0.5){
+
+    testImage.src = './ahh.png';
+}else{
+    testImage.src = './codebullet.jpg';
+}
+
 
 // c.beginPath();
 // c.moveTo(100,10);
@@ -29,19 +39,25 @@ let c = canvas.getContext("2d");
 // c.fill();
 // c.stroke();
 
-canvas.addEventListener("mousedown",onMouseDown,false);
-
-
-
+canvas.addEventListener("mousedown", onMouseDown, false);
 
 
 let x = 0;
 let y = 400;
+
 function draw() {
     requestAnimationFrame(draw);
     c.clearRect(0, 0, canvas.width, canvas.height);
 
 
+    drawPictureCenteredAndScaled(testImage);
+
+    drawDot();
+
+
+}
+
+function drawDot() {
     c.beginPath();
     c.fillStyle = "orange";
     c.arc(x, y, 100, 0, 2 * Math.PI, true);
@@ -50,17 +66,37 @@ function draw() {
     c.fill();
     c.stroke();
 
-    x+=1;
-    if(x>canvas.width + 100){
+    x += 1;
+    if (x > canvas.width + 100) {
         x = -100;
 
 
     }
+
+
 }
 
-function onMouseDown(clickEvent){
+function drawPictureCenteredAndScaled(img) {
 
-    x+=40;
+
+    let padding = 70;
+    let imageToScreenWidthRatio = (canvas.width - padding * 2) / img.width;
+    let imageToScreenHeightRatio = (canvas.height - padding * 2) / img.height;
+
+
+    let scaleAmount = Math.min(imageToScreenHeightRatio, imageToScreenWidthRatio);
+
+    console.log(canvas.width, canvas.height, img.width, img.height, scaleAmount);
+
+    let xOffset = (canvas.width - (scaleAmount * img.width)) / 2;
+    let yOffset = (canvas.height - (scaleAmount * img.height)) / 2;
+
+    c.drawImage(img, xOffset, yOffset, img.width * scaleAmount, img.height * scaleAmount);
+}
+
+function onMouseDown(clickEvent) {
+
+    x += 40;
 
 
     var element = canvas;
@@ -79,8 +115,7 @@ function onMouseDown(clickEvent){
     x = mousex;
     y = mousey;
     console.log(mousex, mousey);
-    console.log(clickEvent.pageX,clickEvent.pageY);
-
+    console.log(clickEvent.pageX, clickEvent.pageY);
 
 
 }
