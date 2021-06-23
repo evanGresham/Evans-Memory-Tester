@@ -125,9 +125,20 @@ function confirmInput(){
 
     var x = document.getElementById("answerTextBox");
     console.log(x.value);
-
     currentText = "Wow u stupid, " + x.value + " is a fuckin dumb cunt answer \n fuck you"
+
+    var field = document.createElement('input');
+    field.setAttribute('type', 'text');
+    document.body.appendChild(field);
+
+    setTimeout(function() {
+        field.focus();
+        setTimeout(function() {
+            field.setAttribute('style', 'display:none;');
+        }, 50);
+    }, 50);
     return false;
+
 }
 
 draw();
